@@ -1,0 +1,40 @@
+<p>
+  Displaying {{ propostas.length }} propostas.
+</p>
+
+<table>
+  <thead>
+  <tr>
+    <th data-field="nome">Nome</th>
+    <th data-field="cidade">Cidade</th>
+    <th data-field="inicio">Inicio</th>
+    <th data-field="fim">Fim</th>
+  </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let q of propostas">
+      <td>{{ q.nome }}</td>
+      <td>{{ q.cidade }}</td>
+      <td>{{ q.inicio }}</td>
+      <td>{{ q.fim }}</td>
+
+      <td>
+        <button [routerLink]="['/propostas', q.id]">
+          Editar
+        </button>
+      </td>
+      <td>
+        <button (click)="deleteProposta(q)">
+          Deletar
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<div style="bottom: 45px; right: 24px;">
+  <a routerLink="/propostas/new">
+    Novo
+  </a>
+</div>

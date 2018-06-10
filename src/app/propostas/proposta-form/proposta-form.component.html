@@ -1,0 +1,37 @@
+<div class="container">
+  <h1>{{ nome }}</h1>
+  <form (ngSubmit)="save()">
+    <div>
+      <label for="name">Nome</label>
+      <input type="text" id="nome" required [(ngModel)]="proposta.nome" name='nome'>
+    </div>
+    <div>
+      <label for="descricao">Descrição</label>
+      <textarea required [(ngModel)]="proposta.descricao" id="descricao"  name='descricao'>
+      </textarea>
+    </div>
+    <div>
+      <label for="valor">Valor</label>
+      <input type="text" id="valor" required [(ngModel)]="proposta.valor" name='valor'>
+    </div>
+    <div>
+      <label for="inicio">Inicio</label>
+      <input type="text" id="inicio" required [(ngModel)]="proposta.inicio" name='inicio'>
+    </div>
+    <div>
+      <label for="fim">Fim</label>
+      <input type="text" id="fim" required [(ngModel)]="proposta.fim" name='fim'>
+    </div>
+    <div>
+      <label for="estado">Estado</label>
+      <input type="text" id="estado" required [(ngModel)]="proposta.estado" name='estado'>
+    </div>
+    <div>
+      <label for="cidade">Cidade</label>
+      <input type="text" id="cidade" required [(ngModel)]="proposta.cidade" name='cidade'>
+    </div>
+    <button type="submit">Submit</button>
+  </form>
+  <hr />
+  <a routerLink="/">Back to Propostas</a>
+</div>
