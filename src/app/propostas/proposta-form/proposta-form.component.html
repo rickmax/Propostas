@@ -12,12 +12,20 @@
           <input class="form-control" type="text" id="valor" required [(ngModel)]="proposta.valor" name='valor'>
         </div>
         <div class="form-group">
-          <label for="inicio">Inicio</label>
-          <input class="form-control" type="text" id="inicio" required [(ngModel)]="proposta.inicio" name='inicio'>
+          <label for="inicio">Início</label>
+          <input type="text" id="inicio" required [(ngModel)]="proposta.inicio" name='inicio'
+              placeholder="Datepicker"
+              class="form-control"
+              bsDatepicker
+              [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }">
         </div>
         <div class="form-group">
           <label for="fim">Fim</label>
-          <input class="form-control" type="text" id="fim" required [(ngModel)]="proposta.fim" name='fim'>
+          <input type="text" id="fim" required [(ngModel)]="proposta.fim" name='fim'
+              placeholder="Datepicker"
+              class="form-control"
+              bsDatepicker
+              [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }">
         </div>
         <div class="form-group">
           <label for="estado">Estado</label>

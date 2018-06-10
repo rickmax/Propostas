@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { CKEditorModule } from 'ngx-ckeditor';
 import { AppComponent } from './app.component';
 import { PropostasComponent } from './propostas/propostas.component';
@@ -23,7 +24,8 @@ import { PropostaService } from './propostas/shared/proposta.service';
     FormsModule,
     HttpModule,
     routing,
-    CKEditorModule
+    CKEditorModule,
+    BsDatepickerModule.forRoot()
   ],
   providers: [PropostaService],
   bootstrap: [AppComponent]

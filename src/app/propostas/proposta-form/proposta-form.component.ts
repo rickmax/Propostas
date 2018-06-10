@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { PropostaService } from '../shared/proposta.service';
-
 import {Proposta} from "../shared/proposta.model";
-
 import { Router, ActivatedRoute } from '@angular/router';
 
 
