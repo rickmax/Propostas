@@ -12,12 +12,14 @@ import { routing } from './app.routing';
 
 import { PropostaFormComponent } from './propostas/proposta-form/proposta-form.component';
 import { PropostaService } from './propostas/shared/proposta.service';
+import { PropostaDetalheComponent } from './propostas/proposta-detalhe/proposta-detalhe.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PropostasComponent,
-    PropostaFormComponent
+    PropostaFormComponent,
+    PropostaDetalheComponent
   ],
   imports: [
     BrowserModule,

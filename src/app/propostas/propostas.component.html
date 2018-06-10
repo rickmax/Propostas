@@ -7,6 +7,9 @@
   <p class="h6">Mostrando {{ propostas.length }} propostas.</p>
   <div class="row">
     <div class="col-10">
+      <div class="table" align="right">
+          <button type="button" class="btn btn-primary"routerLink="/propostas/new">Nova</button>
+      </div>
       <table class="table table-bordered">
         <thead>
         <tr>
@@ -14,6 +17,7 @@
           <th data-field="cidade">Cidade</th>
           <th data-field="inicio">Inicio</th>
           <th data-field="fim">Fim</th>
+          <th >#</th>
           <th >#</th>
           <th >#</th>
         </tr>
@@ -25,9 +29,13 @@
             <td>{{ q.cidade }}</td>
             <td>{{ q.inicio }}</td>
             <td>{{ q.fim }}</td>
-
             <td>
-              <button class="btn btn-default" [routerLink]="['/propostas', q.id]">
+                <button class="btn btn-warning" [routerLink]="['/proposta', q.id]">
+                  Mostrar
+                </button>
+              </td>
+            <td>
+              <button class="btn btn-info" [routerLink]="['/propostas', q.id]">
                 Editar
               </button>
             </td>
@@ -41,10 +49,4 @@
       </table>
     </div>
   </div>
-</div>
-
-<div style="bottom: 45px; right: 24px;">
-  <a routerLink="/propostas/new">
-    Novo
-  </a>
 </div>
