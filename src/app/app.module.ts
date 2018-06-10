@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
+import { CKEditorModule } from 'ngx-ckeditor';
 import { AppComponent } from './app.component';
 import { PropostasComponent } from './propostas/propostas.component';
 
@@ -21,7 +22,8 @@ import { PropostaService } from './propostas/shared/proposta.service';
     BrowserModule,
     FormsModule,
     HttpModule,
-    routing
+    routing,
+    CKEditorModule
   ],
   providers: [PropostaService],
   bootstrap: [AppComponent]

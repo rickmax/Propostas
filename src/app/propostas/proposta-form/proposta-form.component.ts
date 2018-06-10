@@ -12,6 +12,7 @@ import { Router, ActivatedRoute } from '@angular/router';
   templateUrl: './proposta-form.component.html',
   styleUrls: ['./proposta-form.component.css']
 })
+
 export class PropostaFormComponent implements OnInit {
   
   nome: string;
