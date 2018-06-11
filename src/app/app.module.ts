@@ -8,6 +8,7 @@ import { CKEditorModule } from 'ngx-ckeditor';
 import { AppComponent } from './app.component';
 import { PropostasComponent } from './propostas/propostas.component';
 
+
 import { routing } from './app.routing';
 
 import { PropostaFormComponent } from './propostas/proposta-form/proposta-form.component';
