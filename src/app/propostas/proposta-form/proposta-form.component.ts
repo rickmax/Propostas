@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { PropostaService } from '../shared/proposta.service';
 import {Proposta} from "../shared/proposta.model";
 import { Router, ActivatedRoute } from '@angular/router';
+import { Location } from "@angular/common";
 
 
 @Component({
@@ -22,7 +23,8 @@ export class PropostaFormComponent implements OnInit {
 
     private propostaService: PropostaService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private location: Location
   ) { }
 
   ngOnInit() {
@@ -53,5 +55,9 @@ export class PropostaFormComponent implements OnInit {
 
     result.subscribe(data => this.router.navigate(['/']));
   }
+
+  public goBack() {
+    this.location.back();
+  }
 
 }
