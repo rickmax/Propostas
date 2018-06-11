@@ -14,6 +14,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class PropostaFormComponent implements OnInit {
   
   nome: string;
+  botao: string;
   
   proposta: Proposta = new Proposta();
 
@@ -28,7 +29,8 @@ export class PropostaFormComponent implements OnInit {
     var id = this.route.params.subscribe(params => {
       var id = params['id'];
 
-      this.nome = id ? 'Edit Proposta' : 'Create Proposta';
+      this.nome = id ? 'Editar Proposta' : 'Criar Proposta';
+      this.botao = id ? 'Atualizar' : 'Criar';
 
       if (!id)
         return;
