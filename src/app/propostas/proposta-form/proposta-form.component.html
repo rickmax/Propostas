@@ -5,50 +5,61 @@
       <div class="col-4">
         <div class="form-group has-feedback" [class.has-error]="nome.invalid && nome.touched" [class.has-success]="nome.valid">
           <label for="nome" class="control-label">Nome</label>
-          <input #nome="ngModel" class="form-control" type="text" id="nome" required [(ngModel)]="proposta.nome" name='nome'>
-          <div *ngIf="nome.invalid && nome.touched" class="text-danger">O Nome é obrigatório</div>
+          <input #nome="ngModel" class="form-control" type="text" id="nome" required [(ngModel)]="proposta.nome" name='nome'required minlength="8" maxlength="100">
+          
+          <div *ngIf="showFieldError(nome)" class="text-danger">
+            <div *ngIf="nome.errors.required" class="text-danger">o nome é obrigatório</div>
+            <div *ngIf="nome.errors.minlength">o nome deve ter no mínimo 8 caracteres</div>
+            <div *ngIf="nome.errors.maxlength">o nome deve ter no máximo 100 caracteres</div>
+          </div>
         </div>
 
         <div class="form-group has-feedback" [class.has-error]="valor.invalid && valor.touched" [class.has-success]="valor.valid">
           <label for="valor" class="control-label">Valor</label>
-          <input #valor="ngModel" class="form-control" type="text" id="valor" required [(ngModel)]="proposta.valor" name='valor'>
-          <div *ngIf="valor.invalid && valor.touched" class="text-danger">O valor é obrigatório</div>
+          <input #valor="ngModel" class="form-control" type="number" id="valor" ng-pattern="/^[0-9]{1,7}$/" required [(ngModel)]="proposta.valor" name='valor'>
+          <div *ngIf="showFieldError(valor)" class="text-danger">
+            <div *ngIf="nome.errors.required" class="text-danger">o valor é obrigatório</div>
+            
+          </div>
         </div>
         <div class="form-row">
           <div class="form-group col has-feedback" [class.has-error]="inicio.invalid && inicio.touched" [class.has-success]="inicio.valid">
             <label for="inicio" class="control-label">Início</label>
-            <input #inicio="ngModel" type="text" id="inicio" required [(ngModel)]="proposta.inicio" name='inicio'
+            <input #inicio="ngModel" type="text" id="inicio" required [(ngModel)]="proposta.inicio" name='inicio' pattern="\d{1,2}/\d{1,2}/\d{4}"
                 placeholder="0000-00-00"
                 class="form-control"
                 bsDatepicker
                 [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }">
-            <div *ngIf="inicio.invalid && inicio.touched" class="text-danger">O início é obrigatório</div>
+            <div *ngIf="showFieldError(inicio)" class="text-danger">
+              <div *ngIf="inicio.errors.required" class="text-danger">O início é obrigatório</div>
+              <div *ngIf="inicio.errors.pattern" class="text-danger">Não é uma data válida</div>
+            </div>    
           </div>
           <div class="form-group col has-feedback" [class.has-error]="fim.invalid && fim.touched" [class.has-success]="fim.valid">
               <label for="fim" class="control-label">Fim</label>
-              <input #fim="ngModel" type="text" id="fim" required [(ngModel)]="proposta.fim" name='fim'
+              <input #fim="ngModel" type="text" id="fim" required [(ngModel)]="proposta.fim" name='fim' pattern="\d{1,2}/\d{1,2}/\d{4}"
                   placeholder="0000-00-00"
                   class="form-control"
                   bsDatepicker
                   [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }">
-              <div *ngIf="fim.invalid && fim.touched" class="text-danger">O fim é obrigatório</div>
+              <div *ngIf="showFieldError(fim)" class="text-danger">O fim é obrigatório</div>
             </div>
         </div>
         <div class="form-group has-feedback" [class.has-error]="estado.invalid && estado.touched" [class.has-success]="estado.valid">
           <label for="estado" class="control-label">Estado</label>
           <input #estado="ngModel" class="form-control" type="text" id="estado" required [(ngModel)]="proposta.estado" name='estado'>
-          <div *ngIf="estado.invalid && estado.touched" class="text-danger">O estado é obrigatório</div>
+          <div *ngIf="showFieldError(estado)" class="text-danger">O estado é obrigatório</div>
         </div>
         <div class="form-group has-feedback" [class.has-error]="cidade.invalid && cidade.touched" [class.has-success]="cidade.valid">
             <label for="cidade" class="control-label">Cidade</label>
             <input #cidade="ngModel" class="form-control" type="text" id="cidade" required [(ngModel)]="proposta.cidade" name='cidade'>
-            <div *ngIf="cidade.invalid && cidade.touched" class="text-danger">A cidade é obrigatória</div>
+            <div *ngIf="showFieldError(cidade)" class="text-danger">A cidade é obrigatória</div>
           </div>
       </div>
       <div class="form-group col has-feedback" [class.has-error]="descricao.invalid && descricao.touched" [class.has-success]="descricao.valid">
         <label for="descricao" class="control-label">Descrição</label>
         <ck-editor #descricao="ngModel" required name="editor1" [(ngModel)]="proposta.descricao" id="descricao"  name='descricao' skin="moono-lisa" lang="pt" [fullPage]="true"></ck-editor>
-        <div *ngIf="descricao.invalid && descricao.touched" class="text-danger">A descrição é obrigatória</div>
+        <div *ngIf="showFieldError(descricao)" class="text-danger">A descrição é obrigatória</div>
       </div>
     </div>
     <button [disabled]="propostaForm.invalid" type="submit" class="btn btn-success">{{botao}}</button>
@@ -56,3 +67,6 @@
     <button class="btn btn-info" (click)="goBack()">Voltar</button>
   </form>
 </div>
+
+<hr>
+<pre>{{proposta.valor | json}}</pre>

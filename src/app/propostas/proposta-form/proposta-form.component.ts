@@ -5,7 +5,6 @@ import {Proposta} from "../shared/proposta.model";
 import { Router, ActivatedRoute } from '@angular/router';
 import { Location } from "@angular/common";
 
-
 @Component({
   selector: 'app-proposta-form',
   templateUrl: './proposta-form.component.html',
@@ -58,6 +57,10 @@ export class PropostaFormComponent implements OnInit {
 
   public goBack() {
     this.location.back();
+  }
+
+  public showFieldError(field): boolean{
+    return field.invalid && ( field.touched || field.dirty );
   }
 
 }
