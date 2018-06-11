@@ -11,7 +11,7 @@ import {Proposta} from "./shared/proposta.model";
 })
 export class PropostasComponent implements OnInit {
 
-  private propostas: Proposta[] = [];
+  public propostas: Proposta[] = [];
 
   constructor(private propostaService: PropostaService) { }
 
