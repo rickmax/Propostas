@@ -14,20 +14,27 @@ export class PropostasComponent implements OnInit {
   private propostas: Proposta[] = [];
 
   constructor(private propostaService: PropostaService) { }
+    getPropostasLength(){
+      return(this.propostas.length);
+    }
 
-  ngOnInit() {
-    this.propostaService.getPropostas()
-      .subscribe(data => this.propostas = data);
-  }
+    getPropostas(){
+      return(this.propostas);
+    }
 
-  deleteProposta(propostas) {
-    if (confirm("Você tem certeza que quer deletar a proposta: " + propostas.nome + "?")) {
-      var index = this.propostas.indexOf(propostas);
-      this.propostas.splice(index, 1);
+    ngOnInit() {
+      this.propostaService.getPropostas()
+        .subscribe(data => this.propostas = data);
+    }
 
-      this.propostaService.deleteProposta(propostas.id)
-        .subscribe(null);
-    }
-  }
+    deleteProposta(propostas) {
+      if (confirm("Você tem certeza que quer deletar a proposta: " + propostas.nome + "?")) {
+        var index = this.propostas.indexOf(propostas);
+        this.propostas.splice(index, 1);
+
+        this.propostaService.deleteProposta(propostas.id)
+          .subscribe(null);
+      }
+    }
 
 }

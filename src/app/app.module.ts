@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
-import { CKEditorModule } from 'ngx-ckeditor';
+import { CKEditorModule } from './propostas/shared/ck-editor';
 import { AppComponent } from './app.component';
 import { PropostasComponent } from './propostas/propostas.component';
 

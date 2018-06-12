@@ -1,10 +1,6 @@
-<!-- <div class="alert alert-info">
-  <p align='center'>Displaying {{ propostas.length }} propostas.</p>
-</div> -->
-
 <br>
 <div class="container">
-  <p class="h6">Mostrando {{ propostas.length }} propostas.</p>
+  <p class="h6">Mostrando {{ getPropostasLength() }} propostas.</p>
   <div class="row">
     <div class="col-10">
       <div class="table" align="right">
@@ -24,7 +20,7 @@
         </thead>
 
         <tbody>
-          <tr *ngFor="let q of propostas">
+          <tr *ngFor="let q of getPropostas()">
             <td>{{ q.nome }}</td>
             <td>{{ q.cidade }}</td>
             <td>{{ q.inicio }}</td>

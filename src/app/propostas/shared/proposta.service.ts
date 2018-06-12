@@ -9,12 +9,15 @@ import { Observable } from 'rxjs';
 @Injectable()
 export class PropostaService {
 
-  private url: string = "http://localhost:3000/propostas";
+  private url: string = "https://prosa-api.herokuapp.com/propostas";
 
   constructor(private http: Http) { }
 
+    
+
   getPropostas(){
-    return this.http.get(this.url)
+    console.log("\n\n\npassou...");
+    return this.http.get(this.url)
     .pipe(map(res => res.json()))
   }
 
